@@ -1,7 +1,20 @@
 {
-  "name": "facebook-conversion-api",
+  "name": "@knittotextile/facebook-conversion-api",
   "version": "1.0.0",
   "description": "Facebook Conversion API Wrapper for Node.js",
+  "license": "ISC",
+  "author": {
+    "name": "Nurliman Diara",
+    "email": "iman.knitto@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:knittotextile/facebook-conversion-api.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/knittotextile"
+  },
+  "keywords": [],
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
@@ -9,11 +22,9 @@
     "clean": "rimraf dist",
     "build": "npm run clean && npm run build:common && npm run build:types",
     "build:common": "node scripts/build.js",
-    "build:types": "tsc --emitDeclarationOnly"
+    "build:types": "tsc --emitDeclarationOnly",
+    "prepublish": "npm run build"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
     "@types/node": "^17.0.14",
     "@typescript-eslint/eslint-plugin": "^5.10.2",
