@@ -52,8 +52,10 @@ class FacebookConversionAPI {
   /**
    * Add product to contents array.
    */
-  addProduct(sku: string, quantity: number) {
-    this.contents.push(new bizSdk.Content().setId(sku).setQuantity(quantity));
+  addProduct(productId: string, quantity: number) {
+    this.contents.push(
+      new bizSdk.Content().setId(productId).setQuantity(quantity)
+    );
 
     if (this.debug) {
       console.log(`Add To Cart: ${JSON.stringify(this.contents)}\n`);
