@@ -63,12 +63,12 @@ class FacebookConversionAPI {
   /**
    * Send event to Facebook Conversion API and clear contents array after event is fired.
    */
-  sendEvent(
+  async sendEvent(
     eventName: string,
     sourceUrl: string,
     purchaseData?: { value?: number; currency?: string },
     eventData?: { eventId?: string }
-  ): void {
+  ) {
     const eventRequest = new bizSdk.EventRequest(
       this.accessToken,
       this.pixelId
@@ -78,14 +78,11 @@ class FacebookConversionAPI {
 
     this.contents = [];
 
-    eventRequest.execute().then(
-      (response: any) => response,
-      (error: any) => error
-    );
-
     if (this.debug) {
       console.log(`Event Request: ${JSON.stringify(eventRequest)}\n`);
     }
+
+    return await eventRequest.execute();
   }
 
   /**
