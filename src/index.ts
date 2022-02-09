@@ -52,12 +52,14 @@ class FacebookConversionAPI {
   /**
    * Add product to contents array.
    */
-  addProduct(sku: string, quantity: number): void {
+  addProduct(sku: string, quantity: number) {
     this.contents.push(new bizSdk.Content().setId(sku).setQuantity(quantity));
 
     if (this.debug) {
       console.log(`Add To Cart: ${JSON.stringify(this.contents)}\n`);
     }
+
+    return this;
   }
 
   /**
