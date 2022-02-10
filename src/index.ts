@@ -53,11 +53,15 @@ class FacebookConversionAPI {
   /**
    * Add product to contents array.
    */
-  addProduct(productId: string, quantity?: number) {
+  addProduct(productId: string, quantity?: number, price?: number) {
     let content = new bizSdk.Content().setId(productId);
 
     if (isNumeric(quantity)) {
       content = content.setQuantity(Number(quantity));
+    }
+
+    if (isNumeric(price)) {
+      content = content.setPrice(Number(price));
     }
 
     this.contents.push(content);
