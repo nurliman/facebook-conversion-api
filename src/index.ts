@@ -1,5 +1,6 @@
 // @typescript-eslint/no-explicit-any
 import bizSdk from "facebook-nodejs-business-sdk";
+import { isNumeric } from "./utils/isNumeric";
 
 class FacebookConversionAPI {
   accessToken: string;
@@ -52,10 +53,14 @@ class FacebookConversionAPI {
   /**
    * Add product to contents array.
    */
-  addProduct(productId: string, quantity: number) {
-    this.contents.push(
-      new bizSdk.Content().setId(productId).setQuantity(quantity)
-    );
+  addProduct(productId: string, quantity?: number) {
+    let content = new bizSdk.Content().setId(productId);
+
+    if (isNumeric(quantity)) {
+      content = content.setQuantity(Number(quantity));
+    }
+
+    this.contents.push(content);
 
     if (this.debug) {
       console.log(`Add To Cart: ${JSON.stringify(this.contents)}\n`);
