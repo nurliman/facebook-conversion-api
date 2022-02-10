@@ -1,6 +1,6 @@
 {
   "name": "@knittotextile/facebook-conversion-api",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Facebook Conversion API Wrapper for Node.js",
   "license": "ISC",
   "author": {
