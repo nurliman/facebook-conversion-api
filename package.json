@@ -1,6 +1,6 @@
 {
   "name": "@knittotextile/facebook-conversion-api",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Facebook Conversion API Wrapper for Node.js",
   "license": "ISC",
   "author": {
@@ -10,9 +10,6 @@
   "repository": {
     "type": "git",
     "url": "git@github.com:knittotextile/facebook-conversion-api.git"
-  },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/knittotextile"
   },
   "keywords": [],
   "files": [
