@@ -5,15 +5,15 @@ Facebook Conversion API
 ## Install
 
 ```bash
-npm install @knittotextile/facebook-conversion-api
+npm install @nurliman/facebook-conversion-api
 ```
 
 ## Initiate Facebook Conversion API
 ```node
 // ES6 import or TypeScript
-import FacebookConversionAPI from '@knittotextile/facebook-conversion-api';
+import FacebookConversionAPI from '@nurliman/facebook-conversion-api';
 // CommonJS
-const FacebookConversionAPI = require('@knittotextile/facebook-conversion-api').default;
+const FacebookConversionAPI = require('@nurliman/facebook-conversion-api').default;
 
 const FBConversionAPI = new FacebookConversionAPI(
   'accessToken',

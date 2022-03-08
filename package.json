@@ -1,15 +1,15 @@
 {
-  "name": "@knittotextile/facebook-conversion-api",
+  "name": "@nurliman/facebook-conversion-api",
   "version": "1.0.6",
   "description": "Facebook Conversion API Wrapper for Node.js",
   "license": "ISC",
   "author": {
     "name": "Nurliman Diara",
-    "email": "iman.knitto@gmail.com"
+    "email": "nurlimandiara@gmail.com"
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:knittotextile/facebook-conversion-api.git"
+    "url": "git@github.com:nurliman/facebook-conversion-api.git"
   },
   "keywords": [],
   "files": [
