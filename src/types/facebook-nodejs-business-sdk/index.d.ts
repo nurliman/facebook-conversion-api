@@ -4247,7 +4247,7 @@ export class CommerceOrderTransactionDetail {
 }
 
 export class Content {
-    constructor(id: any, quantity: any, item_price: any, title: any, description: any, brand: any, category: any, delivery_category: any);
+    constructor(id?: any, quantity?: any, item_price?: any, title?: any, description?: any, brand?: any, category?: any, delivery_category?: any);
 
     normalize(): any;
 
@@ -4454,7 +4454,7 @@ export class CustomConversion {
 }
 
 export class CustomData {
-    constructor(value: any, currency: any, content_name: any, content_category: any, content_ids: any, contents: any, content_type: any, order_id: any, predicted_ltv: any, num_items: any, search_string: any, status: any, item_number: any, delivery_category: any, custom_properties: any);
+    constructor(value?: any, currency?: any, content_name?: any, content_category?: any, content_ids?: any, contents?: any, content_type?: any, order_id?: any, predicted_ltv?: any, num_items?: any, search_string?: any, status?: any, item_number?: any, delivery_category?: any, custom_properties?: any);
 
     add_custom_property(key: any, value: any): void;
 
@@ -4720,7 +4720,7 @@ export class Event {
 }
 
 export class EventRequest {
-    constructor(access_token: any, pixel_id: any, ...args: any[]);
+    constructor(access_token?: any, pixel_id?: any, ...args: any[]);
 
     cloneWithoutEvents(): any;
 
@@ -9571,7 +9571,7 @@ export class SavedMessageResponse {
 }
 
 export class ServerEvent {
-    constructor(event_name: any, event_time: any, event_source_url: any, user_data: any, custom_data: any, event_id: any, opt_out: any, action_source: any, data_processing_options: any, data_processing_options_country: any, data_processing_options_state: any);
+    constructor(event_name?: any, event_time?: any, event_source_url?: any, user_data?: any, custom_data?: any, event_id?: any, opt_out?: any, action_source?: any, data_processing_options?: any, data_processing_options_country?: any, data_processing_options_state?: any);
 
     normalize(): any;
 
@@ -10128,7 +10128,7 @@ export class User {
 }
 
 export class UserData {
-    constructor(email: any, phone: any, gender: any, first_name: any, last_name: any, date_of_birth: any, city: any, state: any, zip: any, country: any, external_id: any, client_ip_address: any, client_user_agent: any, fbp: any, fbc: any, subscription_id: any, fb_login_id: any, lead_id: any, dobd: any, dobm: any, doby: any);
+    constructor(email?: any, phone?: any, gender?: any, first_name?: any, last_name?: any, date_of_birth?: any, city?: any, state?: any, zip?: any, country?: any, external_id?: any, client_ip_address?: any, client_user_agent?: any, fbp?: any, fbc?: any, subscription_id?: any, fb_login_id?: any, lead_id?: any, dobd?: any, dobm?: any, doby?: any);
 
     dedupArray(arr: any): any;
 
