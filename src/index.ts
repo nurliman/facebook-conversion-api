@@ -1,5 +1,11 @@
 // @typescript-eslint/no-explicit-any
-import bizSdk from "facebook-nodejs-business-sdk";
+import {
+  Content,
+  CustomData,
+  EventRequest,
+  ServerEvent,
+  UserData,
+} from "facebook-nodejs-business-sdk";
 import { isNumeric } from "./utils/isNumeric";
 
 class FacebookConversionAPI {
@@ -33,7 +39,7 @@ class FacebookConversionAPI {
     this.fbc = fbc;
     this.debug = debug;
     this.testEventCode = testEventCode;
-    this.userData = new bizSdk.UserData()
+    this.userData = new UserData()
       .setEmails(emails)
       .setPhones(phones)
       .setClientIpAddress(clientIpAddress)
@@ -51,7 +57,7 @@ class FacebookConversionAPI {
    * Add product to contents array.
    */
   addProduct(productId: string, quantity?: number, price?: number) {
-    let content = new bizSdk.Content().setId(productId);
+    let content = new Content().setId(productId);
 
     if (isNumeric(quantity)) {
       content = content.setQuantity(Number(quantity));
@@ -79,7 +85,7 @@ class FacebookConversionAPI {
     purchaseData?: { value?: number; currency?: string },
     eventData?: { eventId?: string }
   ) {
-    const eventRequest = new bizSdk.EventRequest(
+    const eventRequest = new EventRequest(
       this.accessToken,
       this.pixelId
     ).setEvents([
@@ -110,13 +116,13 @@ class FacebookConversionAPI {
   ): any {
     const currentTimestamp = Math.floor((new Date() as any) / 1000);
 
-    return new bizSdk.ServerEvent()
+    return new ServerEvent()
       .setEventName(eventName)
       .setEventTime(currentTimestamp)
       .setEventId(eventData?.eventId)
       .setUserData(this.userData)
       .setCustomData(
-        new bizSdk.CustomData()
+        new CustomData()
           .setContents(this.contents)
           .setCurrency(purchaseData?.currency)
           .setValue(purchaseData?.value)
