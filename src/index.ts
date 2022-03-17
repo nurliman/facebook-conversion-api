@@ -4,17 +4,11 @@ import { isNumeric } from "./utils/isNumeric";
 
 class FacebookConversionAPI {
   accessToken: string;
-
   pixelId: string;
-
   fbp: string | null;
-
   fbc: string | null;
-
   userData: any;
-
   contents: any;
-
   debug: boolean;
   testEventCode?: string;
 
