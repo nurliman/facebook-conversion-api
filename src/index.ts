@@ -16,6 +16,7 @@ class FacebookConversionAPI {
   contents: any;
 
   debug: boolean;
+  testEventCode?: string;
 
   /**
    * Constructor.
@@ -29,6 +30,7 @@ class FacebookConversionAPI {
     clientUserAgent: string,
     fbp: string | null,
     fbc: string | null,
+    testEventCode?: string,
     debug = false
   ) {
     this.accessToken = accessToken;
@@ -36,6 +38,7 @@ class FacebookConversionAPI {
     this.fbp = fbp;
     this.fbc = fbc;
     this.debug = debug;
+    this.testEventCode = testEventCode;
     this.userData = new bizSdk.UserData()
       .setEmails(emails)
       .setPhones(phones)
@@ -88,6 +91,10 @@ class FacebookConversionAPI {
     ).setEvents([
       this.#getEventData(eventName, sourceUrl, purchaseData, eventData),
     ]);
+
+    if (this.testEventCode) {
+      eventRequest.setTestEventCode(this.testEventCode);
+    }
 
     this.contents = [];
 
