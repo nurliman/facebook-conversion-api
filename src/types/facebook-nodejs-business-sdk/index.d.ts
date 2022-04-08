@@ -1,6 +1,6 @@
 // Type definitions for facebook-nodejs-business-sdk x.x
 // Project: https://github.com/baz/foo (Does not have to be to GitHub, but prefer linking to a source code repository rather than to a project website.)
-// Definitions by: nurliman <https://github.com/me>
+// Definitions by: Nurliman Diara <https://github.com/me>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
 export class APIRequest {
@@ -108,6 +108,7 @@ export class Ad {
     };
 
     static DatePreset: {
+        data_maximum: string;
         last_14d: string;
         last_28d: string;
         last_30d: string;
@@ -300,8 +301,6 @@ export class AdAccount {
 
     getAdRulesLibrary(fields: any, ...args: any[]): any;
 
-    getAdSavedKeywords(fields: any, ...args: any[]): any;
-
     getAdSets(fields: any, ...args: any[]): any;
 
     getAdSetsByLabels(fields: any, ...args: any[]): any;
@@ -333,8 +332,6 @@ export class AdAccount {
     getAsyncRequests(fields: any, ...args: any[]): any;
 
     getBroadTargetingCategories(fields: any, ...args: any[]): any;
-
-    getBusinessProjects(fields: any, ...args: any[]): any;
 
     getCampaigns(fields: any, ...args: any[]): any;
 
@@ -475,7 +472,6 @@ export class AdAccount {
         pyg: string;
         qar: string;
         ron: string;
-        rub: string;
         sar: string;
         sek: string;
         sgd: string;
@@ -817,6 +813,7 @@ export class AdCampaignActivity {
         engaged_users: string;
         event_responses: string;
         impressions: string;
+        in_app_value: string;
         landing_page_views: string;
         lead_generation: string;
         link_clicks: string;
@@ -841,6 +838,7 @@ export class AdCampaignActivity {
         engaged_users: string;
         event_responses: string;
         impressions: string;
+        in_app_value: string;
         landing_page_views: string;
         lead_generation: string;
         link_clicks: string;
@@ -1004,6 +1002,7 @@ export class AdCreative {
         order_now: string;
         pay_to_access: string;
         play_game: string;
+        play_game_on_facebook: string;
         purchase_gift_cards: string;
         record_now: string;
         refer_friends: string;
@@ -1065,6 +1064,7 @@ export class AdCreative {
         call_to_action_type: string;
         categorization_criteria: string;
         category_media_source: string;
+        collaborative_ads_lsb_image_bank_id: string;
         destination_set_id: string;
         dynamic_ad_voice: string;
         effective_authorization_category: string;
@@ -1094,6 +1094,7 @@ export class AdCreative {
         object_story_spec: string;
         object_type: string;
         object_url: string;
+        omnichannel_link_spec: string;
         place_page_set_id: string;
         platform_customizations: string;
         playable_asset_id: string;
@@ -1104,6 +1105,7 @@ export class AdCreative {
         status: string;
         template_url: string;
         template_url_spec: string;
+        thumbnail_id: string;
         thumbnail_url: string;
         title: string;
         url_tags: string;
@@ -1175,6 +1177,7 @@ export class AdImage {
     static Status: {
         active: string;
         deleted: string;
+        internal: string;
     };
 
     static getByIds(ids: any, fields: any, ...args: any[]): any;
@@ -1299,35 +1302,6 @@ export class AdReportRun {
         schedule_id: string;
         time_completed: string;
         time_ref: string;
-    };
-
-    static getByIds(ids: any, fields: any, ...args: any[]): any;
-
-}
-
-export class AdReportSpec {
-    constructor(...args: any[]);
-
-    get(fields: any, ...args: any[]): any;
-
-    static Fields: {
-        account_id: string;
-        actions_group_by: string;
-        creation_source: string;
-        data_columns: string;
-        date_preset: string;
-        export_columns: string;
-        filters: string;
-        format_version: string;
-        id: string;
-        insights_section: string;
-        name: string;
-        report_schedule_id: string;
-        sort_by: string;
-        sort_dir: string;
-        time_increment: string;
-        time_interval: string;
-        time_ranges: string;
     };
 
     static getByIds(ids: any, fields: any, ...args: any[]): any;
@@ -1521,6 +1495,7 @@ export class AdSet {
     };
 
     static DatePreset: {
+        data_maximum: string;
         last_14d: string;
         last_28d: string;
         last_30d: string;
@@ -1651,6 +1626,7 @@ export class AdSet {
         engaged_users: string;
         event_responses: string;
         impressions: string;
+        in_app_value: string;
         landing_page_views: string;
         lead_generation: string;
         link_clicks: string;
@@ -2199,6 +2175,8 @@ export class Application {
 
     createAemConversion(fields: any, ...args: any[]): any;
 
+    createAemSkanReadiness(fields: any, ...args: any[]): any;
+
     createAggregateRevenue(fields: any, ...args: any[]): any;
 
     createAppIndexing(fields: any, ...args: any[]): any;
@@ -2221,15 +2199,13 @@ export class Application {
 
     createMmpAuditing(fields: any, ...args: any[]): any;
 
+    createMonetizedDigitalStoreObject(fields: any, ...args: any[]): any;
+
     createOccludesPopup(fields: any, ...args: any[]): any;
 
     createPageActivity(fields: any, ...args: any[]): any;
 
     createPaymentCurrency(fields: any, ...args: any[]): any;
-
-    createPushTokenRegister(fields: any, ...args: any[]): any;
-
-    createSendNotification(fields: any, ...args: any[]): any;
 
     createSubscribedDomain(fields: any, ...args: any[]): any;
 
@@ -2259,17 +2235,23 @@ export class Application {
 
     getAemConversionConfigs(fields: any, ...args: any[]): any;
 
+    getAemConversionFilter(fields: any, ...args: any[]): any;
+
     getAgencies(fields: any, ...args: any[]): any;
 
     getAndroidDialogConfigs(fields: any, ...args: any[]): any;
 
     getAppAssets(fields: any, ...args: any[]): any;
 
+    getAppEventTypes(fields: any, ...args: any[]): any;
+
     getAppInstalledGroups(fields: any, ...args: any[]): any;
 
     getAuthorizedAdAccounts(fields: any, ...args: any[]): any;
 
     getButtonAutoDetectionDeviceSelection(fields: any, ...args: any[]): any;
+
+    getCloudbridgeSettings(fields: any, ...args: any[]): any;
 
     getDaChecks(fields: any, ...args: any[]): any;
 
@@ -2502,122 +2484,10 @@ export class AsyncSession {
 
 }
 
-export class AtlasCampaign {
-    constructor(...args: any[]);
-
-    get(fields: any, ...args: any[]): any;
-
-    getAdSets(fields: any, ...args: any[]): any;
-
-    getBusinessUnit(fields: any, ...args: any[]): any;
-
-    getMetricsBreakdown(fields: any, ...args: any[]): any;
-
-    getSources(fields: any, ...args: any[]): any;
-
-    static Fields: {
-        ad_platform: string;
-        alias: string;
-        cost_per_1k_impressions: string;
-        cost_per_click: string;
-        cost_per_visit: string;
-        created_by: string;
-        created_date: string;
-        even_credit_convs: string;
-        even_credit_convs_per_1k_impress: string;
-        even_credit_convs_per_click: string;
-        even_credit_convs_per_visit: string;
-        even_credit_cpa: string;
-        even_credit_revenue: string;
-        even_credit_roas: string;
-        first_click_convs: string;
-        first_click_convs_per_1k_impress: string;
-        first_click_convs_per_click: string;
-        first_click_convs_per_visit: string;
-        first_click_cpa: string;
-        first_click_revenue: string;
-        first_click_roas: string;
-        first_touch_convs: string;
-        first_touch_convs_per_1k_impress: string;
-        first_touch_convs_per_click: string;
-        first_touch_convs_per_visit: string;
-        first_touch_cpa: string;
-        first_touch_revenue: string;
-        first_touch_roas: string;
-        id: string;
-        is_archived: string;
-        last_click_convs: string;
-        last_click_convs_per_1k_impress: string;
-        last_click_convs_per_click: string;
-        last_click_convs_per_visit: string;
-        last_click_cpa: string;
-        last_click_revenue: string;
-        last_click_roas: string;
-        last_click_with_extrapolation_convs: string;
-        last_click_with_extrapolation_convs_per_100_clicks: string;
-        last_click_with_extrapolation_convs_per_1k_impress: string;
-        last_click_with_extrapolation_convs_per_click: string;
-        last_click_with_extrapolation_convs_per_visit: string;
-        last_click_with_extrapolation_cpa: string;
-        last_click_with_extrapolation_revenue: string;
-        last_click_with_extrapolation_roas: string;
-        last_click_with_extrapolation_unattributed: string;
-        last_modified_by: string;
-        last_modified_date: string;
-        last_touch_convs: string;
-        last_touch_convs_per_1k_impress: string;
-        last_touch_convs_per_click: string;
-        last_touch_convs_per_visit: string;
-        last_touch_cpa: string;
-        last_touch_revenue: string;
-        last_touch_roas: string;
-        name: string;
-        net_media_cost: string;
-        positional_30fl_convs: string;
-        positional_30fl_convs_per_1k_impress: string;
-        positional_30fl_convs_per_click: string;
-        positional_30fl_convs_per_visit: string;
-        positional_30fl_cpa: string;
-        positional_30fl_revenue: string;
-        positional_30fl_roas: string;
-        positional_40fl_convs: string;
-        positional_40fl_convs_per_1k_impress: string;
-        positional_40fl_convs_per_click: string;
-        positional_40fl_convs_per_visit: string;
-        positional_40fl_cpa: string;
-        positional_40fl_revenue: string;
-        positional_40fl_roas: string;
-        report_click_through_rate: string;
-        report_clicks: string;
-        report_impressions: string;
-        report_visits: string;
-        time_decay_1day_convs: string;
-        time_decay_1day_convs_per_1k_impress: string;
-        time_decay_1day_convs_per_click: string;
-        time_decay_1day_convs_per_visit: string;
-        time_decay_1day_cpa: string;
-        time_decay_1day_revenue: string;
-        time_decay_1day_roas: string;
-        time_decay_7day_convs: string;
-        time_decay_7day_convs_per_1k_impress: string;
-        time_decay_7day_convs_per_click: string;
-        time_decay_7day_convs_per_visit: string;
-        time_decay_7day_cpa: string;
-        time_decay_7day_revenue: string;
-        time_decay_7day_roas: string;
-        type: string;
-    };
-
-    static getByIds(ids: any, fields: any, ...args: any[]): any;
-
-}
-
 export class AudioCopyright {
     constructor(...args: any[]);
 
     get(fields: any, ...args: any[]): any;
-
-    getUpdateRecords(fields: any, ...args: any[]): any;
 
     static Fields: {
         creation_time: string;
@@ -2666,6 +2536,7 @@ export class AutomotiveModel {
         roadster: string;
         saloon: string;
         sedan: string;
+        small_car: string;
         sportscar: string;
         supercar: string;
         supermini: string;
@@ -2742,13 +2613,13 @@ export class Business {
 
     createAdNetworkAnalytic(fields: any, ...args: any[]): any;
 
+    createAdNetworkApplication(fields: any, ...args: any[]): any;
+
     createAdStudy(fields: any, ...args: any[]): any;
 
     createAdsPixel(fields: any, ...args: any[]): any;
 
     createBlockListDraft(fields: any, ...args: any[]): any;
-
-    createBusinessUnit(fields: any, ...args: any[]): any;
 
     createBusinessUser(fields: any, ...args: any[]): any;
 
@@ -2759,6 +2630,8 @@ export class Business {
     createClientPage(fields: any, ...args: any[]): any;
 
     createCollaborativeAdsCollaborationRequest(fields: any, ...args: any[]): any;
+
+    createCpasBusinessSetupConfig(fields: any, ...args: any[]): any;
 
     createCreateAndApplyPublisherBlockList(fields: any, ...args: any[]): any;
 
@@ -2775,8 +2648,6 @@ export class Business {
     createManagedPartnerBusinessSetup(fields: any, ...args: any[]): any;
 
     createManagedPartnerChildBusinessAsset(fields: any, ...args: any[]): any;
-
-    createMoveAsset(fields: any, ...args: any[]): any;
 
     createOfflineConversionDataSet(fields: any, ...args: any[]): any;
 
@@ -2826,15 +2697,13 @@ export class Business {
 
     getBusinessInvoices(fields: any, ...args: any[]): any;
 
-    getBusinessProjects(fields: any, ...args: any[]): any;
-
-    getBusinessUnits(fields: any, ...args: any[]): any;
-
     getBusinessUsers(fields: any, ...args: any[]): any;
 
     getClientAdAccounts(fields: any, ...args: any[]): any;
 
     getClientApps(fields: any, ...args: any[]): any;
+
+    getClientOffsiteSignalContainerBusinessObjects(fields: any, ...args: any[]): any;
 
     getClientPages(fields: any, ...args: any[]): any;
 
@@ -2854,6 +2723,8 @@ export class Business {
 
     getContentDeliveryReport(fields: any, ...args: any[]): any;
 
+    getCpasMerchantConfig(fields: any, ...args: any[]): any;
+
     getEventSourceGroups(fields: any, ...args: any[]): any;
 
     getExtendedCreditApplications(fields: any, ...args: any[]): any;
@@ -2861,8 +2732,6 @@ export class Business {
     getExtendedCredits(fields: any, ...args: any[]): any;
 
     getInitiatedAudienceSharingRequests(fields: any, ...args: any[]): any;
-
-    getInitiatedSharingAgreements(fields: any, ...args: any[]): any;
 
     getInstagramAccounts(fields: any, ...args: any[]): any;
 
@@ -2879,6 +2748,8 @@ export class Business {
     getOwnedBusinesses(fields: any, ...args: any[]): any;
 
     getOwnedInstagramAccounts(fields: any, ...args: any[]): any;
+
+    getOwnedOffsiteSignalContainerBusinessObjects(fields: any, ...args: any[]): any;
 
     getOwnedPages(fields: any, ...args: any[]): any;
 
@@ -2898,15 +2769,13 @@ export class Business {
 
     getPendingOwnedPages(fields: any, ...args: any[]): any;
 
+    getPendingSharedOffsiteSignalContainerBusinessObjects(fields: any, ...args: any[]): any;
+
     getPendingUsers(fields: any, ...args: any[]): any;
 
     getPicture(fields: any, ...args: any[]): any;
 
     getReceivedAudienceSharingRequests(fields: any, ...args: any[]): any;
-
-    getReceivedSharingAgreements(fields: any, ...args: any[]): any;
-
-    getSpacoDataSetCollections(fields: any, ...args: any[]): any;
 
     getSystemUsers(fields: any, ...args: any[]): any;
 
@@ -2918,6 +2787,7 @@ export class Business {
         block_offline_analytics: string;
         collaborative_ads_managed_partner_business_info: string;
         collaborative_ads_managed_partner_eligibility: string;
+        cpas_business_setup_config: string;
         created_by: string;
         created_time: string;
         extended_updated_time: string;
@@ -3025,30 +2895,6 @@ export class Business {
         technology: string;
         telecom: string;
         travel: string;
-    };
-
-    static getByIds(ids: any, fields: any, ...args: any[]): any;
-
-}
-
-export class BusinessAgreement {
-    constructor(...args: any[]);
-
-    get(fields: any, ...args: any[]): any;
-
-    update(fields: any, ...args: any[]): any;
-
-    static Fields: {
-        id: string;
-        request_status: string;
-    };
-
-    static RequestStatus: {
-        approve: string;
-        decline: string;
-        expired: string;
-        in_progress: string;
-        pending: string;
     };
 
     static getByIds(ids: any, fields: any, ...args: any[]): any;
@@ -3298,53 +3144,6 @@ export class BusinessRoleRequest {
 
 }
 
-export class BusinessUnit {
-    constructor(...args: any[]);
-
-    createAtlasSalesAccess(fields: any, ...args: any[]): any;
-
-    get(fields: any, ...args: any[]): any;
-
-    getAdAccounts(fields: any, ...args: any[]): any;
-
-    getAdPlatforms(fields: any, ...args: any[]): any;
-
-    getAtlasSalesAccesses(fields: any, ...args: any[]): any;
-
-    getCampaigns(fields: any, ...args: any[]): any;
-
-    getConversionEvents(fields: any, ...args: any[]): any;
-
-    getConversionPaths(fields: any, ...args: any[]): any;
-
-    getCustomBreakdowns(fields: any, ...args: any[]): any;
-
-    getDiagnostics(fields: any, ...args: any[]): any;
-
-    getExternalImportFile(fields: any, ...args: any[]): any;
-
-    getReports(fields: any, ...args: any[]): any;
-
-    getSources(fields: any, ...args: any[]): any;
-
-    getUsers(fields: any, ...args: any[]): any;
-
-    static Fields: {
-        business: string;
-        creation_time: string;
-        currency: string;
-        excluded_sources: string;
-        id: string;
-        is_enabled_for_measurement: string;
-        name: string;
-        time_zone: string;
-        visits_available_date: string;
-    };
-
-    static getByIds(ids: any, fields: any, ...args: any[]): any;
-
-}
-
 export class BusinessUser {
     constructor(...args: any[]);
 
@@ -3421,6 +3220,27 @@ export class CPASAdvertiserPartnershipRecommendation {
 
 }
 
+export class CPASBusinessSetupConfig {
+    constructor(...args: any[]);
+
+    get(fields: any, ...args: any[]): any;
+
+    getAdAccounts(fields: any, ...args: any[]): any;
+
+    update(fields: any, ...args: any[]): any;
+
+    static Fields: {
+        accepted_collab_ads_tos: string;
+        business: string;
+        business_capabilities_status: string;
+        capabilities_compliance_status: string;
+        id: string;
+    };
+
+    static getByIds(ids: any, fields: any, ...args: any[]): any;
+
+}
+
 export class CPASCollaborationRequest {
     constructor(...args: any[]);
 
@@ -3443,6 +3263,25 @@ export class CPASCollaborationRequest {
         agency: string;
         brand: string;
         merchant: string;
+    };
+
+    static getByIds(ids: any, fields: any, ...args: any[]): any;
+
+}
+
+export class CPASMerchantConfig {
+    constructor(...args: any[]);
+
+    get(fields: any, ...args: any[]): any;
+
+    static Fields: {
+        accepted_tos: string;
+        beta_features: string;
+        business_outcomes_status: string;
+        id: string;
+        is_test_merchant: string;
+        outcomes_compliance_status: string;
+        qualified_to_onboard: string;
     };
 
     static getByIds(ids: any, fields: any, ...args: any[]): any;
@@ -3492,6 +3331,7 @@ export class Campaign {
     };
 
     static DatePreset: {
+        data_maximum: string;
         last_14d: string;
         last_28d: string;
         last_30d: string;
@@ -3529,6 +3369,7 @@ export class Campaign {
 
     static Fields: {
         account_id: string;
+        ad_strategy_group_id: string;
         ad_strategy_id: string;
         adlabels: string;
         bid_strategy: string;
@@ -3887,12 +3728,6 @@ export class Campaign {
 export class Canvas {
     constructor(...args: any[]);
 
-    createDuplicateCanva(fields: any, ...args: any[]): any;
-
-    createPreviewNotification(fields: any, ...args: any[]): any;
-
-    delete(fields: any, ...args: any[]): any;
-
     get(fields: any, ...args: any[]): any;
 
     getPreviews(fields: any, ...args: any[]): any;
@@ -4028,8 +3863,10 @@ export class Comment {
         graphql_multiple_value_hack_do_not_use: string;
         owner_or_commenter: string;
         pending_approval: string;
+        removed_by_admin_assistant: string;
         side_conversation: string;
         side_conversation_and_post_owner: string;
+        spotlight_tab: string;
     };
 
     static Fields: {
@@ -4113,6 +3950,7 @@ export class CommerceMerchantSettings {
     static Fields: {
         braintree_merchant_id: string;
         checkout_message: string;
+        commerce_store: string;
         contact_email: string;
         cta: string;
         disable_checkout_urls: string;
@@ -4148,6 +3986,8 @@ export class CommerceOrder {
     createAcknowledgeOrder(fields: any, ...args: any[]): any;
 
     createCancellation(fields: any, ...args: any[]): any;
+
+    createFulfillOrder(fields: any, ...args: any[]): any;
 
     createRefund(fields: any, ...args: any[]): any;
 
@@ -4269,6 +4109,22 @@ export class Content {
 
 }
 
+export class CopyrightAudioAsset {
+    constructor(...args: any[]);
+
+    get(fields: any, ...args: any[]): any;
+
+    static Fields: {
+        creation_time: string;
+        id: string;
+        title: string;
+        update_time: string;
+    };
+
+    static getByIds(ids: any, fields: any, ...args: any[]): any;
+
+}
+
 export class CustomAudience {
     constructor(...args: any[]);
 
@@ -4295,6 +4151,11 @@ export class CustomAudience {
     getSharedAccountInfo(fields: any, ...args: any[]): any;
 
     update(fields: any, ...args: any[]): any;
+
+    static ActionSource: {
+        physical_store: string;
+        website: string;
+    };
 
     static ClaimObjective: {
         automotive_model: string;
@@ -4331,7 +4192,6 @@ export class CustomAudience {
 
     static Fields: {
         account_id: string;
-        approximate_count: string;
         approximate_count_lower_bound: string;
         approximate_count_upper_bound: string;
         customer_file_source: string;
@@ -4549,21 +4409,6 @@ export class DestinationCatalogSettings {
 
 }
 
-export class Domain {
-    constructor(...args: any[]);
-
-    get(fields: any, ...args: any[]): any;
-
-    static Fields: {
-        id: string;
-        name: string;
-        url: string;
-    };
-
-    static getByIds(ids: any, fields: any, ...args: any[]): any;
-
-}
-
 export class DynamicContentSet {
     constructor(...args: any[]);
 
@@ -4720,7 +4565,7 @@ export class Event {
 }
 
 export class EventRequest {
-    constructor(access_token?: any, pixel_id?: any, ...args: any[]);
+    constructor(access_token: any, pixel_id: any, ...args: any[]);
 
     cloneWithoutEvents(): any;
 
@@ -4978,6 +4823,52 @@ export class Flight {
 
 }
 
+export class FundraiserPersonToCharity {
+    constructor(...args: any[]);
+
+    createEndFundraiser(fields: any, ...args: any[]): any;
+
+    createExternalDonation(fields: any, ...args: any[]): any;
+
+    get(fields: any, ...args: any[]): any;
+
+    getExternalDonations(fields: any, ...args: any[]): any;
+
+    update(fields: any, ...args: any[]): any;
+
+    static Fields: {
+        amount_raised: string;
+        charity_id: string;
+        currency: string;
+        description: string;
+        donations_count: string;
+        donors_count: string;
+        end_time: string;
+        external_amount_raised: string;
+        external_donations_count: string;
+        external_donors_count: string;
+        external_event_name: string;
+        external_event_start_time: string;
+        external_event_uri: string;
+        external_fundraiser_uri: string;
+        external_id: string;
+        goal_amount: string;
+        id: string;
+        internal_amount_raised: string;
+        internal_donations_count: string;
+        internal_donors_count: string;
+        name: string;
+        uri: string;
+    };
+
+    static FundraiserType: {
+        person_for_charity: string;
+    };
+
+    static getByIds(ids: any, fields: any, ...args: any[]): any;
+
+}
+
 export class Group {
     constructor(...args: any[]);
 
@@ -5049,6 +4940,7 @@ export class Group {
     };
 
     static GroupType: {
+        books: string;
         casual: string;
         close_friends: string;
         club: string;
@@ -5059,6 +4951,7 @@ export class Group {
         ephemeral: string;
         event_planning: string;
         family: string;
+        fandom_radar: string;
         fantasy_league: string;
         fitness: string;
         for_sale: string;
@@ -5070,6 +4963,7 @@ export class Group {
         jobs: string;
         learning: string;
         mentorship: string;
+        music_casa_bundle: string;
         neighbors: string;
         none: string;
         oculus: string;
@@ -5081,11 +4975,13 @@ export class Group {
         school_class: string;
         sorority: string;
         sports: string;
+        sports_activity: string;
         streamer: string;
         study_group: string;
         support: string;
         teammates: string;
         theme: string;
+        together_vr: string;
         travel_planning: string;
         work_announcement: string;
         work_demo_group: string;
@@ -5094,12 +4990,14 @@ export class Group {
         work_feedback: string;
         work_for_sale: string;
         work_garden: string;
+        work_guest_group: string;
         work_learning: string;
         work_mentorship: string;
         work_multi_company: string;
         work_recruiting: string;
         work_resume_review: string;
         work_social: string;
+        work_stages: string;
         work_team: string;
         work_teamwork: string;
         work_vc_call: string;
@@ -5118,6 +5016,7 @@ export class Group {
     };
 
     static Purpose: {
+        books: string;
         casual: string;
         close_friends: string;
         club: string;
@@ -5128,6 +5027,7 @@ export class Group {
         ephemeral: string;
         event_planning: string;
         family: string;
+        fandom_radar: string;
         fantasy_league: string;
         fitness: string;
         for_sale: string;
@@ -5139,6 +5039,7 @@ export class Group {
         jobs: string;
         learning: string;
         mentorship: string;
+        music_casa_bundle: string;
         neighbors: string;
         none: string;
         oculus: string;
@@ -5150,11 +5051,13 @@ export class Group {
         school_class: string;
         sorority: string;
         sports: string;
+        sports_activity: string;
         streamer: string;
         study_group: string;
         support: string;
         teammates: string;
         theme: string;
+        together_vr: string;
         travel_planning: string;
         work_announcement: string;
         work_demo_group: string;
@@ -5163,12 +5066,14 @@ export class Group {
         work_feedback: string;
         work_for_sale: string;
         work_garden: string;
+        work_guest_group: string;
         work_learning: string;
         work_mentorship: string;
         work_multi_company: string;
         work_recruiting: string;
         work_resume_review: string;
         work_social: string;
+        work_stages: string;
         work_team: string;
         work_teamwork: string;
         work_vc_call: string;
@@ -5196,7 +5101,6 @@ export class HomeListing {
     static Fields: {
         ac_type: string;
         additional_fees_description: string;
-        address: string;
         agent_company: string;
         agent_email: string;
         agent_fb_page_id: string;
@@ -5207,11 +5111,9 @@ export class HomeListing {
         area_unit: string;
         availability: string;
         category_specific_fields: string;
-        co_2_emission_rating_eu: string;
         currency: string;
         days_on_market: string;
         description: string;
-        energy_rating_eu: string;
         furnish_type: string;
         group_id: string;
         heating_type: string;
@@ -5236,7 +5138,6 @@ export class HomeListing {
         price: string;
         property_type: string;
         sanitized_images: string;
-        unit_price: string;
         url: string;
         year_built: string;
     };
@@ -5404,7 +5305,6 @@ export class IGMedia {
         thumbnail_url: string;
         timestamp: string;
         username: string;
-        video_title: string;
     };
 
     static getByIds(ids: any, fields: any, ...args: any[]): any;
@@ -5425,6 +5325,8 @@ export class IGUser {
     getContentPublishingLimit(fields: any, ...args: any[]): any;
 
     getInsights(fields: any, ...args: any[]): any;
+
+    getLiveMedia(fields: any, ...args: any[]): any;
 
     getMedia(fields: any, ...args: any[]): any;
 
@@ -5760,6 +5662,7 @@ export class InstagramUser {
         is_private: string;
         is_published: string;
         media_count: string;
+        mini_shop_storefront: string;
         profile_pic: string;
         username: string;
     };
@@ -5956,8 +5859,6 @@ export class LifeEvent {
 
     get(fields: any, ...args: any[]): any;
 
-    getComments(fields: any, ...args: any[]): any;
-
     getLikes(fields: any, ...args: any[]): any;
 
     static Fields: {
@@ -5997,58 +5898,6 @@ export class Link {
         name: string;
         privacy: string;
         via: string;
-    };
-
-    static getByIds(ids: any, fields: any, ...args: any[]): any;
-
-}
-
-export class LiveEncoder {
-    constructor(...args: any[]);
-
-    createTelemetry(fields: any, ...args: any[]): any;
-
-    delete(fields: any, ...args: any[]): any;
-
-    get(fields: any, ...args: any[]): any;
-
-    update(fields: any, ...args: any[]): any;
-
-    static CapAudioCodecs: {
-        aac: string;
-    };
-
-    static CapStreamingProtocols: {
-        https_dash: string;
-        rtmps: string;
-        webrtc: string;
-    };
-
-    static CapVideoCodecs: {
-        h264: string;
-    };
-
-    static Fields: {
-        brand: string;
-        creation_time: string;
-        current_broadcast: string;
-        current_input_stream: string;
-        device_id: string;
-        id: string;
-        last_heartbeat_time: string;
-        model: string;
-        name: string;
-        status: string;
-        version: string;
-    };
-
-    static Status: {
-        capture: string;
-        live: string;
-        none: string;
-        preview: string;
-        ready: string;
-        register: string;
     };
 
     static getByIds(ids: any, fields: any, ...args: any[]): any;
@@ -6109,7 +5958,6 @@ export class LiveVideo {
         ingest_streams: string;
         is_manual_mode: string;
         is_reference_only: string;
-        live_encoders: string;
         live_views: string;
         overlay_url: string;
         permalink_url: string;
@@ -6209,7 +6057,6 @@ export class LiveVideoInputStream {
         dash_preview_url: string;
         id: string;
         is_master: string;
-        live_encoder: string;
         secure_stream_url: string;
         stream_health: string;
         stream_id: string;
@@ -6227,11 +6074,35 @@ export class LocalServiceBusiness {
 
     getChannelsToIntegrityStatus(fields: any, ...args: any[]): any;
 
+    static Availability: {
+        available_for_order: string;
+        discontinued: string;
+        in_stock: string;
+        out_of_stock: string;
+        pending: string;
+        preorder: string;
+    };
+
+    static Condition: {
+        pc_cpo: string;
+        pc_new: string;
+        pc_open_box_new: string;
+        pc_refurbished: string;
+        pc_used: string;
+        pc_used_fair: string;
+        pc_used_good: string;
+        pc_used_like_new: string;
+    };
+
     static Fields: {
         address: string;
         applinks: string;
+        availability: string;
         brand: string;
+        category: string;
         category_specific_fields: string;
+        condition: string;
+        cuisine_type: string;
         currency: string;
         custom_label_0: string;
         custom_label_1: string;
@@ -6239,15 +6110,22 @@ export class LocalServiceBusiness {
         custom_label_3: string;
         custom_label_4: string;
         description: string;
+        expiration_date: string;
+        gtin: string;
         id: string;
         image_fetch_status: string;
         images: string;
         local_service_business_id: string;
+        phone: string;
         price: string;
+        price_range: string;
+        retailer_category: string;
         sanitized_images: string;
+        size: string;
         title: string;
         unit_price: string;
         url: string;
+        vendor_id: string;
     };
 
     static ImageFetchStatus: {
@@ -6285,8 +6163,6 @@ export class MailingAddress {
 
 export class MediaFingerprint {
     constructor(...args: any[]);
-
-    delete(fields: any, ...args: any[]): any;
 
     get(fields: any, ...args: any[]): any;
 
@@ -6509,6 +6385,51 @@ export class OfflineConversionDataSet {
 
 }
 
+export class OfflineConversionDataSetUpload {
+    constructor(...args: any[]);
+
+    get(fields: any, ...args: any[]): any;
+
+    getProgress(fields: any, ...args: any[]): any;
+
+    getPullSessions(fields: any, ...args: any[]): any;
+
+    static Fields: {
+        api_calls: string;
+        creation_time: string;
+        duplicate_entries: string;
+        event_stats: string;
+        event_time_max: string;
+        event_time_min: string;
+        first_upload_time: string;
+        id: string;
+        is_excluded_for_lift: string;
+        last_upload_time: string;
+        match_rate_approx: string;
+        matched_entries: string;
+        upload_tag: string;
+        valid_entries: string;
+    };
+
+    static Order: {
+        ascending: string;
+        descending: string;
+    };
+
+    static SortBy: {
+        api_calls: string;
+        creation_time: string;
+        event_time_max: string;
+        event_time_min: string;
+        first_upload_time: string;
+        is_excluded_for_lift: string;
+        last_upload_time: string;
+    };
+
+    static getByIds(ids: any, fields: any, ...args: any[]): any;
+
+}
+
 export class OffsitePixel {
     constructor(...args: any[]);
 
@@ -6541,7 +6462,6 @@ export class OmegaCustomerTrx {
         amount_due: string;
         billed_amount_details: string;
         billing_period: string;
-        campaign: string;
         cdn_download_uri: string;
         currency: string;
         download_uri: string;
@@ -6575,38 +6495,6 @@ export class OpenGraphContext {
 
     static Fields: {
         id: string;
-    };
-
-    static getByIds(ids: any, fields: any, ...args: any[]): any;
-
-}
-
-export class OracleTransaction {
-    constructor(...args: any[]);
-
-    get(fields: any, ...args: any[]): any;
-
-    getCampaigns(fields: any, ...args: any[]): any;
-
-    static Fields: {
-        ad_account_ids: string;
-        amount: string;
-        amount_due: string;
-        billed_amount_details: string;
-        billing_period: string;
-        cdn_download_uri: string;
-        currency: string;
-        download_uri: string;
-        due_date: string;
-        entity: string;
-        id: string;
-        invoice_date: string;
-        invoice_id: string;
-        invoice_type: string;
-        liability_type: string;
-        payment_status: string;
-        payment_term: string;
-        type: string;
     };
 
     static getByIds(ids: any, fields: any, ...args: any[]): any;
@@ -6650,8 +6538,6 @@ export class Page {
 
     createLeadGenForm(fields: any, ...args: any[]): any;
 
-    createLiveEncoder(fields: any, ...args: any[]): any;
-
     createLiveVideo(fields: any, ...args: any[]): any;
 
     createLocation(fields: any, ...args: any[]): any;
@@ -6667,6 +6553,8 @@ export class Page {
     createNativeOffer(fields: any, ...args: any[]): any;
 
     createNlpConfig(fields: any, ...args: any[]): any;
+
+    createNotificationMessagesDevSupport(fields: any, ...args: any[]): any;
 
     createPageBackedInstagramAccount(fields: any, ...args: any[]): any;
 
@@ -6702,8 +6590,6 @@ export class Page {
 
     createVideoCopyrightRule(fields: any, ...args: any[]): any;
 
-    createWorkPageMessage(fields: any, ...args: any[]): any;
-
     deleteAgencies(...args: any[]): any;
 
     deleteAssignedUsers(...args: any[]): any;
@@ -6722,8 +6608,6 @@ export class Page {
 
     get(fields: any, ...args: any[]): any;
 
-    getAdminNotes(fields: any, ...args: any[]): any;
-
     getAdsPosts(fields: any, ...args: any[]): any;
 
     getAgencies(fields: any, ...args: any[]): any;
@@ -6733,8 +6617,6 @@ export class Page {
     getAssignedUsers(fields: any, ...args: any[]): any;
 
     getBlocked(fields: any, ...args: any[]): any;
-
-    getBusinessProjects(fields: any, ...args: any[]): any;
 
     getCallToActions(fields: any, ...args: any[]): any;
 
@@ -6780,19 +6662,17 @@ export class Page {
 
     getInsights(fields: any, ...args: any[]): any;
 
-    getInsightsExports(fields: any, ...args: any[]): any;
-
     getInstagramAccounts(fields: any, ...args: any[]): any;
 
     getInstantArticles(fields: any, ...args: any[]): any;
 
     getInstantArticlesInsights(fields: any, ...args: any[]): any;
 
+    getInstantArticlesStats(fields: any, ...args: any[]): any;
+
     getLeadGenForms(fields: any, ...args: any[]): any;
 
     getLikes(fields: any, ...args: any[]): any;
-
-    getLiveEncoders(fields: any, ...args: any[]): any;
 
     getLiveVideos(fields: any, ...args: any[]): any;
 
@@ -6865,20 +6745,9 @@ export class Page {
         unspecified: string;
     };
 
-    static BackdatedTimeGranularity: {
-        day: string;
-        hour: string;
-        min: string;
-        month: string;
-        none: string;
-        year: string;
-    };
-
-    static CheckinEntryPoint: {
-        branding_checkin: string;
-        branding_other: string;
-        branding_photo: string;
-        branding_status: string;
+    static DeveloperAction: {
+        enable_followup_message: string;
+        send_re_optin: string;
     };
 
     static EntryPointIcon: {
@@ -7104,11 +6973,6 @@ export class Page {
         vietnamese: string;
     };
 
-    static Formatting: {
-        markdown: string;
-        plaintext: string;
-    };
-
     static GreetingDialogDisplay: {
         hide: string;
         show: string;
@@ -7195,27 +7059,9 @@ export class Page {
         other: string;
     };
 
-    static PlaceAttachmentSetting: {
-        value_1: string;
-        value_2: string;
-    };
-
     static Platform: {
         instagram: string;
         messenger: string;
-    };
-
-    static PostSurfacesBlacklist: {
-        value_1: string;
-        value_2: string;
-        value_3: string;
-        value_4: string;
-        value_5: string;
-    };
-
-    static PostingToRedspace: {
-        disabled: string;
-        enabled: string;
     };
 
     static PublishStatus: {
@@ -7313,11 +7159,6 @@ export class Page {
         website: string;
     };
 
-    static TargetSurface: {
-        story: string;
-        timeline: string;
-    };
-
     static Tasks: {
         advertise: string;
         analyze: string;
@@ -7349,16 +7190,6 @@ export class Page {
         no_data: string;
         operating_as_usual: string;
         temporarily_closed: string;
-    };
-
-    static UnpublishedContentType: {
-        ads_post: string;
-        draft: string;
-        inline_created: string;
-        published: string;
-        reviewable_branded_content: string;
-        scheduled: string;
-        scheduled_recurring: string;
     };
 
     static getByIds(ids: any, fields: any, ...args: any[]): any;
@@ -7683,8 +7514,6 @@ export class PartnerStudy {
 
     get(fields: any, ...args: any[]): any;
 
-    getPartners(fields: any, ...args: any[]): any;
-
     static Fields: {
         additional_info: string;
         brand: string;
@@ -7733,6 +7562,7 @@ export class PaymentEnginePayment {
         items: string;
         payout_foreign_exchange_rate: string;
         phone_support_eligible: string;
+        platform: string;
         refundable_amount: string;
         request_id: string;
         tax: string;
@@ -7918,6 +7748,21 @@ export class PlaceTopic {
 
 }
 
+export class PlayableContent {
+    constructor(...args: any[]);
+
+    get(fields: any, ...args: any[]): any;
+
+    static Fields: {
+        id: string;
+        name: string;
+        owner: string;
+    };
+
+    static getByIds(ids: any, fields: any, ...args: any[]): any;
+
+}
+
 export class Post {
     constructor(...args: any[]);
 
@@ -8097,12 +7942,14 @@ export class PrivateLiftStudyInstance {
         latest_status_update_time: string;
         server_ips: string;
         status: string;
+        tier: string;
     };
 
     static Operation: {
         aggregate: string;
         compute: string;
         id_match: string;
+        next: string;
         none: string;
     };
 
@@ -8125,6 +7972,8 @@ export class ProductCatalog {
 
     createCategory(fields: any, ...args: any[]): any;
 
+    createCpasLsbImageBank(fields: any, ...args: any[]): any;
+
     createExternalEventSource(fields: any, ...args: any[]): any;
 
     createHomeListing(fields: any, ...args: any[]): any;
@@ -8136,6 +7985,8 @@ export class ProductCatalog {
     createItemsBatch(fields: any, ...args: any[]): any;
 
     createLocalizedItemsBatch(fields: any, ...args: any[]): any;
+
+    createMediaTitle(fields: any, ...args: any[]): any;
 
     createPricingVariablesBatch(fields: any, ...args: any[]): any;
 
@@ -8165,13 +8016,13 @@ export class ProductCatalog {
 
     getAssignedUsers(fields: any, ...args: any[]): any;
 
-    getAutoMarkets(fields: any, ...args: any[]): any;
-
     getAutomotiveModels(fields: any, ...args: any[]): any;
 
     getCategories(fields: any, ...args: any[]): any;
 
     getCheckBatchRequestStatus(fields: any, ...args: any[]): any;
+
+    getCollaborativeAdsLsbImageBank(fields: any, ...args: any[]): any;
 
     getCollaborativeAdsShareSettings(fields: any, ...args: any[]): any;
 
@@ -8190,8 +8041,6 @@ export class ProductCatalog {
     getHotelRoomsBatch(fields: any, ...args: any[]): any;
 
     getHotels(fields: any, ...args: any[]): any;
-
-    getMediaTitles(fields: any, ...args: any[]): any;
 
     getPricingVariablesBatch(fields: any, ...args: any[]): any;
 
@@ -8313,8 +8162,6 @@ export class ProductFeed {
 
     get(fields: any, ...args: any[]): any;
 
-    getAutoMarkets(fields: any, ...args: any[]): any;
-
     getAutomotiveModels(fields: any, ...args: any[]): any;
 
     getDestinations(fields: any, ...args: any[]): any;
@@ -8324,8 +8171,6 @@ export class ProductFeed {
     getHomeListings(fields: any, ...args: any[]): any;
 
     getHotels(fields: any, ...args: any[]): any;
-
-    getMediaTitles(fields: any, ...args: any[]): any;
 
     getProducts(fields: any, ...args: any[]): any;
 
@@ -8467,14 +8312,6 @@ export class ProductFeedRule {
         id: string;
         params: string;
         rule_type: string;
-    };
-
-    static RuleType: {
-        fallback_rule: string;
-        letter_case_rule: string;
-        mapping_rule: string;
-        regex_replace_rule: string;
-        value_mapping_rule: string;
     };
 
     static getByIds(ids: any, fields: any, ...args: any[]): any;
@@ -8630,6 +8467,20 @@ export class ProductGroup {
 
 }
 
+export class ProductImage {
+    constructor(...args: any[]);
+
+    get(fields: any, ...args: any[]): any;
+
+    static Fields: {
+        id: string;
+        image_url: string;
+    };
+
+    static getByIds(ids: any, fields: any, ...args: any[]): any;
+
+}
+
 export class ProductItem {
     constructor(...args: any[]);
 
@@ -8759,7 +8610,9 @@ export class ProductItem {
         fb_elec_part: string;
         fb_elec_print: string;
         fb_elec_radar: string;
+        fb_elec_sftwr: string;
         fb_elec_speed_rdr: string;
+        fb_elec_television: string;
         fb_elec_toll: string;
         fb_elec_vid_gm_acc: string;
         fb_elec_vid_gm_cnsl: string;
@@ -8901,6 +8754,11 @@ export class ProductItem {
         custom_label_2: string;
         custom_label_3: string;
         custom_label_4: string;
+        custom_number_0: string;
+        custom_number_1: string;
+        custom_number_2: string;
+        custom_number_3: string;
+        custom_number_4: string;
         description: string;
         expiration_date: string;
         fb_product_category: string;
@@ -8945,6 +8803,7 @@ export class ProductItem {
         start_date: string;
         url: string;
         visibility: string;
+        wa_compliance_category: string;
     };
 
     static Gender: {
@@ -9241,6 +9100,11 @@ export class ProductItem {
         staging: string;
     };
 
+    static WaComplianceCategory: {
+        country_origin_exempt: string;
+        default: string;
+    };
+
     static getByIds(ids: any, fields: any, ...args: any[]): any;
 
 }
@@ -9261,8 +9125,6 @@ export class ProductSet {
     getHomeListings(fields: any, ...args: any[]): any;
 
     getHotels(fields: any, ...args: any[]): any;
-
-    getMediaTitles(fields: any, ...args: any[]): any;
 
     getProducts(fields: any, ...args: any[]): any;
 
@@ -9340,7 +9202,7 @@ export class Profile {
 export class PublisherBlockList {
     constructor(...args: any[]);
 
-    createAppendPublisherUrl(fields: any, ...args: any[]): any;
+    createAppEndPublisherUrl(fields: any, ...args: any[]): any;
 
     delete(fields: any, ...args: any[]): any;
 
@@ -9489,7 +9351,6 @@ export class ReachFrequencyPrediction {
         start_time: string;
         status: string;
         story_event_type: string;
-        target_audience_size: string;
         target_cpm: string;
         target_spec: string;
         time_created: string;
@@ -9529,8 +9390,6 @@ export class SavedAudience {
 
     static Fields: {
         account: string;
-        approximate_count: string;
-        approximate_count_64bit: string;
         approximate_count_lower_bound: string;
         approximate_count_upper_bound: string;
         delete_time: string;
@@ -9957,11 +9816,11 @@ export class User {
 
     createFeed(fields: any, ...args: any[]): any;
 
+    createFundraiser(fields: any, ...args: any[]): any;
+
     createGameItem(fields: any, ...args: any[]): any;
 
     createGameTime(fields: any, ...args: any[]): any;
-
-    createLiveEncoder(fields: any, ...args: any[]): any;
 
     createLiveVideo(fields: any, ...args: any[]): any;
 
@@ -10027,8 +9886,6 @@ export class User {
 
     getLikes(fields: any, ...args: any[]): any;
 
-    getLiveEncoders(fields: any, ...args: any[]): any;
-
     getLiveVideos(fields: any, ...args: any[]): any;
 
     getMusic(fields: any, ...args: any[]): any;
@@ -10068,9 +9925,7 @@ export class User {
         inspirational_people: string;
         install_type: string;
         installed: string;
-        interested_in: string;
         is_guest_user: string;
-        is_verified: string;
         languages: string;
         last_name: string;
         link: string;
@@ -10087,7 +9942,6 @@ export class User {
         profile_pic: string;
         quotes: string;
         relationship_status: string;
-        religion: string;
         shared_login_upgrade_required_by: string;
         short_name: string;
         significant_other: string;
@@ -10236,12 +10090,22 @@ export class Vehicle {
         convertible: string;
         coupe: string;
         crossover: string;
+        estate: string;
+        grandtourer: string;
         hatchback: string;
+        minibus: string;
         minivan: string;
+        mpv: string;
         none: string;
         other: string;
+        pickup: string;
+        roadster: string;
+        saloon: string;
         sedan: string;
         small_car: string;
+        sportscar: string;
+        supercar: string;
+        supermini: string;
         suv: string;
         truck: string;
         van: string;
@@ -10435,8 +10299,6 @@ export class VideoCopyright {
 
     get(fields: any, ...args: any[]): any;
 
-    getUpdateRecords(fields: any, ...args: any[]): any;
-
     update(fields: any, ...args: any[]): any;
 
     static ContentCategory: {
@@ -10584,6 +10446,8 @@ export class WhatsAppBusinessAccount {
 
     getAssignedUsers(fields: any, ...args: any[]): any;
 
+    getConversationAnalytics(fields: any, ...args: any[]): any;
+
     getMessageTemplates(fields: any, ...args: any[]): any;
 
     getPhoneNumbers(fields: any, ...args: any[]): any;
@@ -10598,6 +10462,7 @@ export class WhatsAppBusinessAccount {
         appointment_update: string;
         auto_reply: string;
         issue_resolution: string;
+        otp: string;
         payment_update: string;
         personal_finance_update: string;
         reservation_update: string;
@@ -10853,8 +10718,6 @@ export function AdgroupIssuesInfo(...args: any[]): any;
 
 export function AdgroupPlacementSpecificReviewFeedback(...args: any[]): any;
 
-export function AdgroupRelevanceScore(...args: any[]): any;
-
 export function AdgroupReviewFeedback(...args: any[]): any;
 
 export function AdsActionStats(...args: any[]): any;
@@ -10883,11 +10746,7 @@ export function AsyncRequest(...args: any[]): any;
 
 export function AttributionSpec(...args: any[]): any;
 
-export function AudienceInsightsStudySpec(...args: any[]): any;
-
 export function AudiencePermissionForActions(...args: any[]): any;
-
-export function BilledAmountDetails(...args: any[]): any;
 
 export function BrandSafetyBlockListUsage(...args: any[]): any;
 
@@ -11015,7 +10874,7 @@ export function InstagramInsightsValue(...args: any[]): any;
 
 export function InstantArticleInsightsQueryResult(...args: any[]): any;
 
-export function InvoiceCampaign(...args: any[]): any;
+export function InstantArticlesStats(...args: any[]): any;
 
 export function IosAppLink(...args: any[]): any;
 
@@ -11060,6 +10919,10 @@ export function MinimumBudget(...args: any[]): any;
 export function NativeOfferDiscount(...args: any[]): any;
 
 export function NullNode(...args: any[]): any;
+
+export function OfflineConversionDataSetPermissions(...args: any[]): any;
+
+export function OfflineConversionDataSetUsage(...args: any[]): any;
 
 export function OutcomePredictionPoint(...args: any[]): any;
 
@@ -11304,11 +11167,15 @@ export namespace AdAccountAdVolume {
         aggregated_budget_limited: string;
         aggregated_cost_limited: string;
         auction_overlap: string;
+        audience_expansion: string;
+        autoflow_opt_in: string;
         creative_fatigue: string;
+        creative_limited: string;
         dead_link: string;
         ecosystem_bid_reduce_l1_cardinality: string;
         fragmentation: string;
         learning_limited: string;
+        syd_test_mode: string;
         top_adsets_with_ads_under_cap: string;
         top_campaigns_with_ads_under_cap: string;
         uneconomical_ads_throttling: string;
@@ -11385,7 +11252,6 @@ export namespace AdAccountDeliveryEstimate {
     const Fields: {
         daily_outcomes_curve: string;
         estimate_dau: string;
-        estimate_mau: string;
         estimate_mau_lower_bound: string;
         estimate_mau_upper_bound: string;
         estimate_ready: string;
@@ -11401,6 +11267,7 @@ export namespace AdAccountDeliveryEstimate {
         engaged_users: string;
         event_responses: string;
         impressions: string;
+        in_app_value: string;
         landing_page_views: string;
         lead_generation: string;
         link_clicks: string;
@@ -11496,7 +11363,6 @@ export namespace AdAccountPromotableObjects {
 export namespace AdAccountReachEstimate {
     const Fields: {
         estimate_ready: string;
-        users: string;
         users_lower_bound: string;
         users_upper_bound: string;
     };
@@ -11554,7 +11420,6 @@ export namespace AdAccountTargetingUnified {
     };
 
     const Fields: {
-        audience_size: string;
         audience_size_lower_bound: string;
         audience_size_upper_bound: string;
         conversion_lift: string;
@@ -11810,6 +11675,7 @@ export namespace AdActivity {
         calypso: string;
         tao: string;
         tao_ad_account: string;
+        tao_ad_status: string;
     };
 
     const EventType: {
@@ -11951,6 +11817,7 @@ export namespace AdAssetFeedSpec {
         order_now: string;
         pay_to_access: string;
         play_game: string;
+        play_game_on_facebook: string;
         purchase_gift_cards: string;
         record_now: string;
         refer_friends: string;
@@ -11995,10 +11862,7 @@ export namespace AdAssetFeedSpec {
         groups: string;
         images: string;
         link_urls: string;
-        offer_ids: string;
-        onsite_destinations: string;
         optimization_type: string;
-        phone_data_ids: string;
         posts: string;
         titles: string;
         videos: string;
@@ -12152,7 +12016,6 @@ export namespace AdCampaignDeliveryEstimate {
     const Fields: {
         daily_outcomes_curve: string;
         estimate_dau: string;
-        estimate_mau: string;
         estimate_mau_lower_bound: string;
         estimate_mau_upper_bound: string;
         estimate_ready: string;
@@ -12168,6 +12031,7 @@ export namespace AdCampaignDeliveryEstimate {
         engaged_users: string;
         event_responses: string;
         impressions: string;
+        in_app_value: string;
         landing_page_views: string;
         lead_generation: string;
         link_clicks: string;
@@ -12337,6 +12201,7 @@ export namespace AdCreativeLinkData {
     };
 
     const FormatOption: {
+        carousel_ar_effects: string;
         carousel_images_multi_items: string;
         carousel_images_single_item: string;
         carousel_slideshows: string;
@@ -12405,6 +12270,7 @@ export namespace AdCreativeLinkDataCallToAction {
         order_now: string;
         pay_to_access: string;
         play_game: string;
+        play_game_on_facebook: string;
         purchase_gift_cards: string;
         record_now: string;
         refer_friends: string;
@@ -12552,6 +12418,7 @@ export namespace AdCreativeLinkDataImageLayerSpec {
 export namespace AdCreativeLinkDataImageOverlaySpec {
     const CustomTextType: {
         free_shipping: string;
+        popular: string;
     };
 
     const Fields: {
@@ -12980,7 +12847,10 @@ export namespace AdPreview {
         facebook_story_sticker_mobile: string;
         instagram_explore_contextual: string;
         instagram_explore_immersive: string;
+        instagram_feed_web: string;
+        instagram_feed_web_m_site: string;
         instagram_reels: string;
+        instagram_reels_overlay: string;
         instagram_shop: string;
         instagram_standard: string;
         instagram_story: string;
@@ -13061,6 +12931,7 @@ export namespace AdPromotedObject {
         custom_event_type: string;
         event_id: string;
         fundraiser_campaign_id: string;
+        mcme_conversion_id: string;
         object_store_url: string;
         offer_id: string;
         offline_conversion_data_set_id: string;
@@ -13351,18 +13222,6 @@ export namespace AdgroupPlacementSpecificReviewFeedback {
 
 }
 
-export namespace AdgroupRelevanceScore {
-    const Fields: {
-        negative_feedback: string;
-        positive_feedback: string;
-        score: string;
-        status: string;
-    };
-
-    function getByIds(ids: any, fields: any, ...args: any[]): any;
-
-}
-
 export namespace AdgroupReviewFeedback {
     const Fields: {
         global: string;
@@ -13431,6 +13290,8 @@ export namespace AdsInsights {
     const ActionAttributionWindows: {
         dda: string;
         default: string;
+        skan_click: string;
+        skan_view: string;
         value_1d_click: string;
         value_1d_view: string;
         value_28d_click: string;
@@ -13486,6 +13347,7 @@ export namespace AdsInsights {
     };
 
     const DatePreset: {
+        data_maximum: string;
         last_14d: string;
         last_28d: string;
         last_30d: string;
@@ -13816,22 +13678,6 @@ export namespace AttributionSpec {
 
 }
 
-export namespace AudienceInsightsStudySpec {
-    const Fields: {
-        audience_definition: string;
-        author_info: string;
-        creation_time: string;
-        end_time: string;
-        excluded_rules: string;
-        included_rules: string;
-        start_time: string;
-        status: string;
-    };
-
-    function getByIds(ids: any, fields: any, ...args: any[]): any;
-
-}
-
 export namespace AudiencePermissionForActions {
     const Fields: {
         can_edit: string;
@@ -13839,18 +13685,6 @@ export namespace AudiencePermissionForActions {
         can_share: string;
         subtype_supports_lookalike: string;
         supports_recipient_lookalike: string;
-    };
-
-    function getByIds(ids: any, fields: any, ...args: any[]): any;
-
-}
-
-export namespace BilledAmountDetails {
-    const Fields: {
-        currency: string;
-        net_amount: string;
-        tax_amount: string;
-        total_amount: string;
     };
 
     function getByIds(ids: any, fields: any, ...args: any[]): any;
@@ -13877,7 +13711,6 @@ export namespace BroadTargetingCategories {
         name: string;
         parent_category: string;
         path: string;
-        size: string;
         size_lower_bound: string;
         size_upper_bound: string;
         source: string;
@@ -14244,6 +14077,7 @@ export namespace ContentDeliveryReport {
         oculus_twilight_feed: string;
         oculus_twilight_feed_spotlight: string;
         oculus_twilight_search: string;
+        oculus_twilight_search_null_state: string;
         oculus_vr_apps: string;
         others: string;
         rewarded_video: string;
@@ -14414,6 +14248,7 @@ export namespace CustomAudienceDataSource {
         conversion_pixel_hits: string;
         copy_paste_email_hashes: string;
         custom_audience_users: string;
+        custom_data_targeting: string;
         data_file: string;
         dynamic_rule: string;
         engagement_event_users: string;
@@ -15050,6 +14885,7 @@ export namespace IDName {
 
 export namespace InsightsResult {
     const DatePreset: {
+        data_maximum: string;
         last_14d: string;
         last_28d: string;
         last_30d: string;
@@ -15109,12 +14945,16 @@ export namespace InstagramInsightsResult {
         carousel_album_reach: string;
         carousel_album_saved: string;
         carousel_album_video_views: string;
+        comments: string;
         engagement: string;
         exits: string;
         impressions: string;
+        likes: string;
+        plays: string;
         reach: string;
         replies: string;
         saved: string;
+        shares: string;
         taps_back: string;
         taps_forward: string;
         video_views: string;
@@ -15174,17 +15014,13 @@ export namespace InstantArticleInsightsQueryResult {
 
 }
 
-export namespace InvoiceCampaign {
+export namespace InstantArticlesStats {
     const Fields: {
-        ad_account_id: string;
-        billed_amount_details: string;
-        campaign_id: string;
-        campaign_name: string;
-        clicks: string;
-        conversions: string;
-        description: string;
-        impressions: string;
-        tags: string;
+        error: string;
+        metadata: string;
+        metric: string;
+        totals: string;
+        x_axis_breakdown: string;
     };
 
     function getByIds(ids: any, fields: any, ...args: any[]): any;
@@ -15475,6 +15311,27 @@ export namespace NativeOfferDiscount {
 
 export namespace NullNode {
     const Fields: {
+    };
+
+    function getByIds(ids: any, fields: any, ...args: any[]): any;
+
+}
+
+export namespace OfflineConversionDataSetPermissions {
+    const Fields: {
+        can_edit: string;
+        can_edit_or_upload: string;
+        can_upload: string;
+        should_block_vanilla_business_employee_access: string;
+    };
+
+    function getByIds(ids: any, fields: any, ...args: any[]): any;
+
+}
+
+export namespace OfflineConversionDataSetUsage {
+    const Fields: {
+        num_lift_studies: string;
     };
 
     function getByIds(ids: any, fields: any, ...args: any[]): any;

@@ -7,12 +7,12 @@ specifiers:
   esbuild: ^0.14.34
   esbuild-node-externals: ^1.4.1
   eslint: ^8.12.0
-  facebook-nodejs-business-sdk: ^12.0.1
+  facebook-nodejs-business-sdk: ^13.0.0
   rimraf: ^3.0.2
   typescript: ^4.6.3
 
 dependencies:
-  facebook-nodejs-business-sdk: 12.0.1
+  facebook-nodejs-business-sdk: 13.0.0
 
 devDependencies:
   '@types/node': 17.0.23
@@ -765,8 +765,8 @@ packages:
     engines: {'0': node >=0.6.0}
     dev: false
 
-  /facebook-nodejs-business-sdk/12.0.1:
-    resolution: {integrity: sha512-MFVHpDhNuhzMLaSeMmhVfuMN9CCvQpWfq74jxL8pBvm8F/gJySKVqnIKgCjZkPJx0BPtY0KPJJ1ygyOYlhjbKA==}
+  /facebook-nodejs-business-sdk/13.0.0:
+    resolution: {integrity: sha512-9HCQy0fPhTDUeBaoGDQlB24TInYIporI1Mo9tyM4JE9ce7zHieJqTofJMAEdWFUTlyF8GLOsPul8Lz7sn3M9Wg==}
     dependencies:
       currency-codes: 1.5.1
       iso-3166-1-alpha-2: 1.0.0

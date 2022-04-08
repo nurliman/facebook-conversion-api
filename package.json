@@ -36,6 +36,6 @@
     "typescript": "^4.6.3"
   },
   "dependencies": {
-    "facebook-nodejs-business-sdk": "^12.0.1"
+    "facebook-nodejs-business-sdk": "^13.0.0"
   }
 }
