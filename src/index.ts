@@ -13,7 +13,7 @@ class FacebookConversionAPI {
   pixelId: string;
   fbp: string | null;
   fbc: string | null;
-  userData: any;
+  userData: UserData;
   contents: any[];
   debug: boolean;
   testEventCode?: string;
@@ -39,13 +39,40 @@ class FacebookConversionAPI {
     this.fbc = fbc;
     this.debug = debug;
     this.testEventCode = testEventCode;
-    this.userData = new UserData()
-      .setEmails(emails)
-      .setPhones(phones)
-      .setClientIpAddress(clientIpAddress)
-      .setClientUserAgent(clientUserAgent)
-      .setFbp(fbp)
-      .setFbc(fbc);
+    this.userData = new UserData();
+
+    if (clientUserAgent) {
+      this.userData.setClientUserAgent(clientUserAgent);
+    }
+
+    if (Array.isArray(emails) && emails.length) {
+      this.userData.setEmails(emails);
+    }
+
+    if (typeof emails === "string" && emails) {
+      this.userData.setEmails([emails]);
+    }
+
+    if (Array.isArray(phones) && phones.length) {
+      this.userData.setPhones(phones);
+    }
+
+    if ((typeof phones === "string" || typeof phones === "number") && phones) {
+      this.userData.setPhones([phones]);
+    }
+
+    if (clientUserAgent) {
+      this.userData = this.userData.setClientIpAddress(clientIpAddress);
+    }
+
+    if (fbp) {
+      this.userData = this.userData.setFbp(fbp);
+    }
+
+    if (fbc) {
+      this.userData = this.userData.setFbc(fbc);
+    }
+
     this.contents = [];
 
     if (this.debug) {
@@ -76,6 +103,21 @@ class FacebookConversionAPI {
     return this;
   }
 
+  private isUserDataEmpty() {
+    let isEmpty = true;
+
+    if (typeof this.userData === "object") {
+      for (const key in this.userData) {
+        if (this.userData[key]) {
+          isEmpty = false;
+          break;
+        }
+      }
+    }
+
+    return isEmpty;
+  }
+
   /**
    * Send event to Facebook Conversion API and clear contents array after event is fired.
    */
@@ -85,8 +127,10 @@ class FacebookConversionAPI {
     purchaseData?: { value?: number; currency?: string },
     eventData?: { eventId?: string },
   ) {
+    if (this.isUserDataEmpty()) throw new Error("User Data is empty");
+
     const eventRequest = new EventRequest(this.accessToken, this.pixelId).setEvents([
-      this.#getEventData(eventName, sourceUrl, purchaseData, eventData),
+      this.getEventData(eventName, sourceUrl, purchaseData, eventData),
     ]);
 
     if (this.testEventCode) {
@@ -105,7 +149,7 @@ class FacebookConversionAPI {
   /**
    * Get event data.
    */
-  #getEventData(
+  private getEventData(
     eventName: string,
     sourceUrl: string,
     purchaseData?: { value?: number; currency?: string },
