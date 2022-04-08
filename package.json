@@ -21,7 +21,7 @@
     "lint": "eslint ./src --ext .js,.jsx,.ts,.tsx --cache --fix",
     "clean": "rimraf dist",
     "build": "npm run clean && npm run build:common && npm run build:types",
-    "build:common": "node scripts/build.js",
+    "build:common": "node scripts/build.mjs",
     "build:types": "tsc --declaration --allowJs --emitDeclarationOnly",
     "format": "pretty-quick --staged --ignore-path .gitignore",
     "format:all": "prettier --write \"**/*.+(js|mjs|cjs|jsx|ts|tsx|css|scss|md|json|yml|yaml)\" --ignore-path .gitignore",
