@@ -14,7 +14,7 @@ class FacebookConversionAPI {
   fbp: string | null;
   fbc: string | null;
   userData: UserData;
-  contents: any[];
+  contents: Content[];
   debug: boolean;
   testEventCode?: string;
 
