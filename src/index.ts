@@ -84,7 +84,9 @@ class FacebookConversionAPI {
    * Add product to contents array.
    */
   addProduct(productId: string, quantity?: number, price?: number) {
-    let content: Content = new Content().setId(productId);
+    if (!productId) throw new Error("Product ID is required");
+
+    let content: Content = new Content().setId(productId).setBrand("Knitto");
 
     if (isNumeric(quantity)) {
       content = content.setQuantity(float2int(quantity));
