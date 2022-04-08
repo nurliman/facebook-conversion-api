@@ -32,7 +32,7 @@ class FacebookConversionAPI {
     fbp: string | null,
     fbc: string | null,
     testEventCode?: string,
-    debug = false
+    debug = false,
   ) {
     this.accessToken = accessToken;
     this.pixelId = pixelId;
@@ -84,12 +84,9 @@ class FacebookConversionAPI {
     eventName: string,
     sourceUrl: string,
     purchaseData?: { value?: number; currency?: string },
-    eventData?: { eventId?: string }
+    eventData?: { eventId?: string },
   ) {
-    const eventRequest = new EventRequest(
-      this.accessToken,
-      this.pixelId
-    ).setEvents([
+    const eventRequest = new EventRequest(this.accessToken, this.pixelId).setEvents([
       this.#getEventData(eventName, sourceUrl, purchaseData, eventData),
     ]);
 
@@ -113,7 +110,7 @@ class FacebookConversionAPI {
     eventName: string,
     sourceUrl: string,
     purchaseData?: { value?: number; currency?: string },
-    eventData?: { eventId?: string }
+    eventData?: { eventId?: string },
   ): any {
     const currentTimestamp = Math.floor((new Date() as any) / 1000);
 
@@ -126,7 +123,7 @@ class FacebookConversionAPI {
         new CustomData()
           .setContents(this.contents)
           .setCurrency(purchaseData?.currency)
-          .setValue(purchaseData?.value)
+          .setValue(purchaseData?.value),
       )
       .setEventSourceUrl(sourceUrl)
       .setActionSource("website");

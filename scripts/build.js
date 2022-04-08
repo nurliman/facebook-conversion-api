@@ -3,11 +3,7 @@ const { nodeExternalsPlugin } = require("esbuild-node-externals");
 
 esbuild
   .build({
-    entryPoints: [
-      "src/index.ts",
-      "src/utils/float2int.ts",
-      "src/utils/isNumeric.ts",
-    ],
+    entryPoints: ["src/index.ts", "src/utils/float2int.ts", "src/utils/isNumeric.ts"],
     platform: "node",
     target: "node10",
     outdir: "dist",
