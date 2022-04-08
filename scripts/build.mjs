@@ -1,6 +1,9 @@
 import esbuild from "esbuild";
+import hasFlag from "has-flag";
 import { nodeExternalsPlugin } from "esbuild-node-externals";
 import { globbySync } from "globby";
+
+const isMinify = hasFlag("--minify");
 
 esbuild
   .build({
@@ -11,7 +14,7 @@ esbuild
     format: "cjs",
     bundle: false,
     sourcemap: true,
-    minify: true,
+    minify: isMinify,
     plugins: [nodeExternalsPlugin()],
   })
   .then(({ errors, warnings }) => {
