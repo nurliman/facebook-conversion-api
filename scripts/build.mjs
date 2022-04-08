@@ -1,9 +1,10 @@
 import esbuild from "esbuild";
 import { nodeExternalsPlugin } from "esbuild-node-externals";
+import { globbySync } from "globby";
 
 esbuild
   .build({
-    entryPoints: ["src/index.ts", "src/utils/float2int.ts", "src/utils/isNumeric.ts"],
+    entryPoints: globbySync(["src/**/*.+(js|ts)", "!src/types"]),
     platform: "node",
     target: "node10",
     outdir: "dist",
