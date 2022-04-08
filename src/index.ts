@@ -1,4 +1,3 @@
-// @typescript-eslint/no-explicit-any
 import {
   Content,
   CustomData,

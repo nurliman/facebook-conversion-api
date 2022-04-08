@@ -8,4 +8,7 @@ module.exports = {
     amd: true,
     node: true,
   },
+  rules: {
+    "@typescript-eslint/no-explicit-any": "off",
+  },
 };
