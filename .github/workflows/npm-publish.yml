@@ -17,6 +17,10 @@ jobs:
       packages: write
     steps:
       - uses: actions/checkout@v2
+      - name: Extract branch name
+        shell: bash
+        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        id: extract_branch
       - uses: pnpm/action-setup@v2.2.1
         with:
           version: "next-7"
@@ -28,6 +32,6 @@ jobs:
       - name: Install dependencies
         run: pnpm install
       - name: Publish package
-        run: pnpm publish --access public
+        run: pnpm publish --access public --publish-branch ${{ steps.extract_branch.outputs.branch }}
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
