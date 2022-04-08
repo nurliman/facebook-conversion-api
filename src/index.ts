@@ -13,8 +13,8 @@ class FacebookConversionAPI {
   pixelId: string;
   fbp: string | null;
   fbc: string | null;
-  userData: UserData;
-  contents: Content[];
+  userData: UserData & Record<string, any>;
+  contents: (Content & Record<string, any>)[];
   debug: boolean;
   testEventCode?: string;
 
@@ -105,21 +105,6 @@ class FacebookConversionAPI {
     return this;
   }
 
-  private isUserDataEmpty() {
-    let isEmpty = true;
-
-    if (typeof this.userData === "object") {
-      for (const key in this.userData) {
-        if (this.userData[key]) {
-          isEmpty = false;
-          break;
-        }
-      }
-    }
-
-    return isEmpty;
-  }
-
   /**
    * Send event to Facebook Conversion API and clear contents array after event is fired.
    */
@@ -129,9 +114,9 @@ class FacebookConversionAPI {
     purchaseData?: { value?: number; currency?: string },
     eventData?: { eventId?: string },
   ) {
-    if (this.isUserDataEmpty()) throw new Error("User Data is empty");
+    if (!sourceUrl) throw new Error("sourceUrl is required");
 
-    const eventRequest = new EventRequest(this.accessToken, this.pixelId).setEvents([
+    const eventRequest: EventRequest = new EventRequest(this.accessToken, this.pixelId).setEvents([
       this.getEventData(eventName, sourceUrl, purchaseData, eventData),
     ]);
 
