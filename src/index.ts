@@ -114,8 +114,6 @@ class FacebookConversionAPI {
     purchaseData?: { value?: number; currency?: string },
     eventData?: { eventId?: string },
   ) {
-    if (!sourceUrl) throw new Error("sourceUrl is required");
-
     const eventRequest: EventRequest = new EventRequest(this.accessToken, this.pixelId).setEvents([
       this.getEventData(eventName, sourceUrl, purchaseData, eventData),
     ]);
