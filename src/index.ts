@@ -7,6 +7,7 @@ import {
   UserData,
 } from "facebook-nodejs-business-sdk";
 import { isNumeric } from "./utils/isNumeric";
+import { float2int } from "./utils/float2int";
 
 class FacebookConversionAPI {
   accessToken: string;
@@ -60,11 +61,11 @@ class FacebookConversionAPI {
     let content: Content = new Content().setId(productId);
 
     if (isNumeric(quantity)) {
-      content = content.setQuantity(Number(quantity));
+      content = content.setQuantity(float2int(quantity));
     }
 
     if (isNumeric(price)) {
-      content = content.setItemPrice(Number(price));
+      content = content.setItemPrice(float2int(price));
     }
 
     this.contents.push(content);
