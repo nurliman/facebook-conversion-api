@@ -15,6 +15,7 @@ class FacebookConversionAPI {
   fbc: string | null;
   userData: UserData & Record<string, any>;
   contents: (Content & Record<string, any>)[];
+  constentType = "product";
   debug: boolean;
   testEventCode?: string;
 
@@ -131,6 +132,12 @@ class FacebookConversionAPI {
     return await eventRequest.execute();
   }
 
+  setContentType(contentType: string) {
+    this.constentType = contentType;
+
+    return this;
+  }
+
   /**
    * Get event data.
    */
@@ -150,6 +157,7 @@ class FacebookConversionAPI {
       .setCustomData(
         new CustomData()
           .setContents(this.contents)
+          .setContentType(this.constentType)
           .setCurrency(purchaseData?.currency)
           .setValue(purchaseData?.value),
       )
