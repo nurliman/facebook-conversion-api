@@ -34,7 +34,7 @@
     "@typescript-eslint/eslint-plugin": "^5.27.0",
     "@typescript-eslint/parser": "^5.27.0",
     "esbuild": "^0.14.47",
-    "esbuild-node-externals": "^1.4.1",
+    "esbuild-node-externals": "^1.5.0",
     "eslint": "^8.18.0",
     "globby": "^13.1.2",
     "has-flag": "^5.0.1",

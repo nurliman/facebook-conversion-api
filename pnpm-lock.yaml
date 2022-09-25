@@ -5,7 +5,7 @@ specifiers:
   '@typescript-eslint/eslint-plugin': ^5.27.0
   '@typescript-eslint/parser': ^5.27.0
   esbuild: ^0.14.47
-  esbuild-node-externals: ^1.4.1
+  esbuild-node-externals: ^1.5.0
   eslint: ^8.18.0
   facebook-nodejs-business-sdk: ^13.0.0
   globby: ^13.1.2
@@ -25,7 +25,7 @@ devDependencies:
   '@typescript-eslint/eslint-plugin': 5.27.0_snaa2xhv3kxd3wlldi6ltl6hgq
   '@typescript-eslint/parser': 5.27.0_b5e7v2qnwxfo6hmiq56u52mz3e
   esbuild: 0.14.47
-  esbuild-node-externals: 1.4.1_esbuild@0.14.47
+  esbuild-node-externals: 1.5.0_esbuild@0.14.47
   eslint: 8.18.0
   globby: 13.1.2
   has-flag: 5.0.1
@@ -669,10 +669,10 @@ packages:
     dev: true
     optional: true
 
-  /esbuild-node-externals/1.4.1_esbuild@0.14.47:
-    resolution: {integrity: sha512-ZFNGa6w1kYzn4wx9ty4eaItaOTSe2hWQZ6WXa/8guKJCiXL3XpW2CZT4gkx2OhfBKxpqaqa7ZeGK54ScoLSUdw==}
+  /esbuild-node-externals/1.5.0_esbuild@0.14.47:
+    resolution: {integrity: sha512-9394Ne2t2Z243BWeNBRkXEYVMOVbQuzp7XSkASZTOQs0GSXDuno5aH5OmzEXc6GMuln5zJjpkZpgwUPW0uRKgw==}
     peerDependencies:
-      esbuild: 0.12 - 0.14
+      esbuild: 0.12 - 0.15
     dependencies:
       esbuild: 0.14.47
       find-up: 5.0.0
