@@ -15,14 +15,16 @@
   "files": [
     "dist"
   ],
-  "main": "dist/index.js",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
   "types": "dist/index.d.ts",
+  "exports": {
+    "require": "./dist/index.js",
+    "import": "./dist/index.mjs"
+  },
   "scripts": {
     "lint": "eslint ./src --ext .js,.jsx,.ts,.tsx --cache --fix",
-    "clean": "rimraf dist",
-    "build": "npm run clean && npm run build:common && npm run build:types",
-    "build:common": "node scripts/build.mjs --minify",
-    "build:types": "tsc --declaration --allowJs --emitDeclarationOnly",
+    "build": "tsup --minify",
     "format": "pretty-quick --staged --ignore-path .gitignore",
     "format:all": "prettier --write \"**/*.+(js|mjs|cjs|jsx|ts|tsx|css|scss|md|json|yml|yaml)\" --ignore-path .gitignore",
     "prepublish": "npm run build",
@@ -33,8 +35,6 @@
     "@types/node": "16",
     "@typescript-eslint/eslint-plugin": "^5.42.0",
     "@typescript-eslint/parser": "^5.42.0",
-    "esbuild": "^0.15.13",
-    "esbuild-node-externals": "^1.5.0",
     "eslint": "^8.26.0",
     "globby": "^13.1.2",
     "has-flag": "^5.0.1",
@@ -42,7 +42,7 @@
     "lint-staged": "^13.0.3",
     "prettier": "^2.7.1",
     "pretty-quick": "^3.1.3",
-    "rimraf": "^3.0.2",
+    "tsup": "^6.4.0",
     "typescript": "^4.8.4"
   },
   "dependencies": {
