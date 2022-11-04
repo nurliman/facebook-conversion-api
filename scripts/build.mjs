@@ -11,7 +11,7 @@ esbuild
     platform: "node",
     target: "node10",
     outdir: "dist",
-    format: "cjs",
+    format: "esm",
     bundle: false,
     sourcemap: true,
     minify: isMinify,
