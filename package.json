@@ -1,6 +1,6 @@
 {
   "name": "@nurliman/facebook-conversion-api",
-  "version": "2.0.2",
+  "version": "3.0.0",
   "description": "Facebook Conversion API Wrapper for Node.js",
   "license": "ISC",
   "author": {
