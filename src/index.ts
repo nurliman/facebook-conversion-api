@@ -1,10 +1,6 @@
-import {
-  Content,
-  CustomData,
-  EventRequest,
-  ServerEvent,
-  UserData,
-} from "facebook-nodejs-business-sdk";
+import { CustomData, EventRequest, ServerEvent } from "facebook-nodejs-business-sdk";
+import Content from "facebook-nodejs-business-sdk/src/objects/serverside/content";
+import UserData from "facebook-nodejs-business-sdk/src/objects/serverside/user-data";
 import { isNumeric } from "./utils/isNumeric";
 import { float2int } from "./utils/float2int";
 
@@ -40,7 +36,29 @@ class FacebookConversionAPI {
     this.fbc = fbc;
     this.debug = debug;
     this.testEventCode = testEventCode;
-    this.userData = new UserData();
+    this.userData = new UserData(
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+    );
 
     if (clientUserAgent) {
       this.userData.setClientUserAgent(clientUserAgent);
@@ -87,7 +105,7 @@ class FacebookConversionAPI {
   addProduct(productId: string, quantity?: number, price?: number) {
     if (!productId) throw new Error("Product ID is required");
 
-    let content: Content = new Content().setId(productId).setBrand("Knitto");
+    let content = new Content(productId, null, null, null, null, "Knitto", null, null);
 
     if (isNumeric(quantity)) {
       content = content.setQuantity(float2int(quantity));
@@ -115,7 +133,7 @@ class FacebookConversionAPI {
     purchaseData?: { value?: number; currency?: string },
     eventData?: { eventId?: string },
   ) {
-    const eventRequest: EventRequest = new EventRequest(this.accessToken, this.pixelId).setEvents([
+    const eventRequest = new EventRequest(this.accessToken, this.pixelId).setEvents([
       this.getEventData(eventName, sourceUrl, purchaseData, eventData),
     ]);
 
@@ -149,20 +167,37 @@ class FacebookConversionAPI {
   ): any {
     const currentTimestamp = Math.floor((new Date() as any) / 1000);
 
-    return new ServerEvent()
-      .setEventName(eventName)
-      .setEventTime(currentTimestamp)
-      .setEventId(eventData?.eventId)
-      .setUserData(this.userData)
-      .setCustomData(
-        new CustomData()
-          .setContents(this.contents)
-          .setContentType(this.constentType)
-          .setCurrency(purchaseData?.currency)
-          .setValue(purchaseData?.value),
-      )
-      .setEventSourceUrl(sourceUrl)
-      .setActionSource("website");
+    const customData = new CustomData(
+      purchaseData?.value,
+      purchaseData?.currency,
+      null,
+      null,
+      null,
+      this.contents,
+      this.constentType,
+      null,
+      null,
+      this.contents?.length || null,
+      null,
+      null,
+      null,
+      null,
+      null,
+    );
+
+    return new ServerEvent(
+      eventName,
+      currentTimestamp,
+      sourceUrl,
+      this.userData,
+      customData,
+      eventData?.eventId,
+      null,
+      "website",
+      null,
+      null,
+      null,
+    );
   }
 }
 
