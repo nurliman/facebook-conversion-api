@@ -15,7 +15,7 @@ class FacebookConversionAPI {
   pixelId: string;
   fbp: string | null;
   fbc: string | null;
-  externalId: string | null;
+  externalIds: string[] | null;
   userData: UserDataType & Record<string, any>;
   contents: (ContentType & Record<string, any>)[];
   constentType = "product";
@@ -34,7 +34,7 @@ class FacebookConversionAPI {
     clientUserAgent: string,
     fbp: string | null,
     fbc: string | null,
-    externalId: string | null,
+    externalIds: string | string[] | null,
     testEventCode?: string,
     debug = false,
   ) {
@@ -42,7 +42,13 @@ class FacebookConversionAPI {
     this.pixelId = pixelId;
     this.fbp = fbp;
     this.fbc = fbc;
-    this.externalId = externalId;
+
+    if (Array.isArray(externalIds)) {
+      this.externalIds = externalIds;
+    } else {
+      this.externalIds = externalIds ? [externalIds] : [];
+    }
+
     this.debug = debug;
     this.testEventCode = testEventCode;
     this.userData = new UserData(
@@ -101,8 +107,8 @@ class FacebookConversionAPI {
       this.userData = this.userData.setFbc(fbc);
     }
 
-    if (externalId) {
-      this.userData = this.userData.setExternalId(externalId);
+    if (this.externalIds?.length) {
+      this.userData = this.userData.setExternalIds(this.externalIds);
     }
 
     this.contents = [];
