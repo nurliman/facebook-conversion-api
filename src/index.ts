@@ -1,6 +1,12 @@
-import { CustomData, EventRequest, ServerEvent } from "facebook-nodejs-business-sdk";
-import Content from "facebook-nodejs-business-sdk/src/objects/serverside/content";
-import UserData from "facebook-nodejs-business-sdk/src/objects/serverside/user-data";
+import {
+  Content,
+  CustomData,
+  EventRequest,
+  ServerEvent,
+  UserData,
+} from "facebook-nodejs-business-sdk";
+import type ContentType from "facebook-nodejs-business-sdk/src/objects/serverside/content";
+import type UserDataType from "facebook-nodejs-business-sdk/src/objects/serverside/user-data";
 import { isNumeric } from "./utils/isNumeric";
 import { float2int } from "./utils/float2int";
 
@@ -10,8 +16,8 @@ class FacebookConversionAPI {
   fbp: string | null;
   fbc: string | null;
   externalId: string | null;
-  userData: UserData & Record<string, any>;
-  contents: (Content & Record<string, any>)[];
+  userData: UserDataType & Record<string, any>;
+  contents: (ContentType & Record<string, any>)[];
   constentType = "product";
   debug: boolean;
   testEventCode?: string;
