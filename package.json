@@ -31,7 +31,7 @@
     "lint-staged": "lint-staged"
   },
   "devDependencies": {
-    "@types/facebook-nodejs-business-sdk": "^15.0.0",
+    "@types/facebook-nodejs-business-sdk": "^15.0.2",
     "@types/node": "16",
     "@typescript-eslint/eslint-plugin": "^5.42.0",
     "@typescript-eslint/parser": "^5.42.0",
@@ -45,7 +45,7 @@
     "typescript": "^4.8.4"
   },
   "dependencies": {
-    "facebook-nodejs-business-sdk": "^15.0.0"
+    "facebook-nodejs-business-sdk": "^15.0.2"
   },
   "lint-staged": {
     "*.+(js|mjs|cjs|jsx|ts|tsx)": "eslint --cache --fix"
